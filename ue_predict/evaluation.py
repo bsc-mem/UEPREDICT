@@ -43,7 +43,7 @@ def evaluate(df_pred, ues_df, pred_wind, mitigation_td,
     date_times = df_pred.index.get_level_values('date_time')
     id_blades = df_pred.index.get_level_values('id_blade')
     # get positive predictions
-    positives_df = df_pred[df_pred['y_prob_1'] >= threshold]
+    positives_df = df_pred[df_pred['y_prob_1'] > threshold]
     positive_dts = positives_df.index.get_level_values('date_time')
     positive_id_blades = positives_df.index.get_level_values('id_blade')
     
@@ -73,7 +73,7 @@ def evaluate(df_pred, ues_df, pred_wind, mitigation_td,
                 ues_predictable += 1
     
     # number of impact mitigations performed
-    mitigations = df_pred[(df_pred['y_prob_1'] >= threshold)] \
+    mitigations = df_pred[(df_pred['y_prob_1'] > threshold)] \
                         .groupby(level=['date_time', 'id_blade']) \
                         .size() \
                         .size
