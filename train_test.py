@@ -57,6 +57,7 @@ def main():
     args = parse_args()
     pred_wind = pd.to_timedelta(args.pred_wind)
 
+    # read and process datasets
     if args.verbose:
         print('Reading data...')
     identity = ['date_time', 'id_blade', 'dimm_id']

@@ -11,7 +11,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from imblearn.under_sampling import RandomUnderSampler
 
-from ue_predict.evaluation import evaluate
+from ue_predict.evaluation import evaluate_multithreshold
 
 
 
@@ -36,9 +36,10 @@ def parse_args():
                               'a CSV containing the UEs data.'))
     parser.add_argument('--mitigation-cost', dest='mitigation_cost',
                         default='2min', help=help_aliases%'mitigation cost')
-    # TODO uncomment and implement
-    # parser.add_argument('-o', '--output-evaluations', dest='evals_file',
-    #                     default='evaluations.csv', help='TODO')
+    parser.add_argument('-o', '--output-evaluations', dest='evals_file',
+                        default='data/evaluations.csv',
+                        help=('Path of the output file, a CSV containing '
+                              'the evaluations data.'))
     parser.add_argument('--verbose', dest='verbose', action='store_true',
                         help=('If specified, shows the information regarding '
                               'the evaluation of the predictions.'))
@@ -52,6 +53,7 @@ def main():
     pred_wind = pd.to_timedelta(args.pred_wind)
     mitigation_td = pd.to_timedelta(args.mitigation_cost)
 
+    # read and process datasets
     if args.verbose:
         print('Reading data...')
     identity = ['date_time', 'id_blade', 'dimm_id']
@@ -60,12 +62,12 @@ def main():
     ues_reduction = pd.read_csv(args.ues_file, parse_dates=['date_time'])
 
     # evaluate model performance
-    evaluate(
-        preds_df, ues_reduction, pred_wind, mitigation_td,
-        threshold=0.5, verbose=args.verbose
+    evals_df = evaluate_multithreshold(
+        preds_df, ues_reduction, pred_wind, mitigation_td, verbose=args.verbose
     )
 
-    # TODO save evals
+    # save evals
+    evals_df.to_csv(args.evals_file, index=False)
 
 
 if __name__ == '__main__':
