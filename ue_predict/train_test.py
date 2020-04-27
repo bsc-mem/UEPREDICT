@@ -146,8 +146,10 @@ def hyperparamters_tuning(
         model = algo(**hyperparams).fit(X_train, y_train)
         y_pred = model.predict(X_test)
         tn, fp, fn, tp = ravel_conf_mat(confusion_matrix(y_test, y_pred))
-        # TODO change eval function for best hyperparams
-        new_evals[i].append(fp+tp+fn*20)
+        # cost approximations for optimizing hyperparameters
+        mitigation_cost = 2/60
+        ue_cost = 50
+        new_evals[i].append((fp+tp)*mitigation_cost + fn*ue_cost)
     
     # index of the element that minimizes the mean evaluation
     idx_min = np.argmin(np.mean(new_evals))
