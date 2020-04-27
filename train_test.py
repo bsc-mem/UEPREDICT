@@ -18,7 +18,6 @@ from ue_predict.train_test import get_target, train_test_cv
 
 
 def parse_args():
-    # TODO change input file defaults and add helps
     parser = argparse.ArgumentParser()
     help_aliases = (
         'Specifies the %s. It has to be '
@@ -33,15 +32,15 @@ def parse_args():
     parser.add_argument('-tf', '--train-frequency', dest='train_freq',
                         default='7d', help=help_aliases%'training frequency')
     parser.add_argument('-i-fts', '--input-features', dest='fts_file',
-                        default='df_features.csv',
+                        default='data/features.csv',
                         help=('Path to the input features file, a CSV '
                               'containing the features data.'))
     parser.add_argument('-i-ues', '--input-ues', dest='ues_file',
-                        default='../../data/ues_reduced_blade_1w.feather',
+                        default='data/ues_reduction.csv',
                         help=('Path to the input Uncorrected Errors file, '
                               'a CSV containing the UEs data.'))
     parser.add_argument('-o', '--output-predictions', dest='preds_file',
-                        default='predictions.csv',
+                        default='data/predictions.csv',
                         help=('Path of the output file, a CSV containing '
                               'the predictions data after the train/test '
                               'iterations.'))
@@ -62,8 +61,7 @@ def main():
         print('Reading data...')
     identity = ['date_time', 'id_blade', 'dimm_id']
     df = pd.read_csv(args.fts_file, parse_dates=['date_time'])
-    # TODO parse datetimes + csv
-    ues_blade_1w = pd.read_feather(args.ues_file)
+    ues_reduction = pd.read_csv(args.ues_file, parse_dates=['date_time'])
 
     # remove the last instances for which there is not enough time
     # for knowing the true outcome
@@ -79,7 +77,7 @@ def main():
     # compute target based on the real event datetime
     if args.verbose:
         print('Computing target...')
-    target = get_target(df, ues_blade_1w, pred_wind)
+    target = get_target(df, ues_reduction, pred_wind)
     df['target'] = target
     df = df.drop('real_date_time', axis=1)
 

@@ -16,7 +16,6 @@ from ue_predict.evaluation import evaluate
 
 
 def parse_args():
-    # TODO change input file defaults and add helps
     help_aliases = (
         'Specifies the %s. It has to be '
         'specified in the form of pandas time offset aliases, see '
@@ -27,12 +26,12 @@ def parse_args():
     parser.add_argument('-pw', '--prediction-window', dest='pred_wind',
                         default='1d', help=help_aliases%'prediction window')
     parser.add_argument('-i-preds', '--input-predictions', dest='preds_file',
-                        default='predictions.csv',
+                        default='data/predictions.csv',
                         help=('Path to the input predictions file, a CSV '
                               'containing the predictions data generated '
                               'by the train_test script.'))
     parser.add_argument('-i-ues', '--input-ues', dest='ues_file',
-                        default='../../data/ues_reduced_blade_1w.feather',
+                        default='data/ues_reduction.csv',
                         help=('Path to the input Uncorrected Errors file, '
                               'a CSV containing the UEs data.'))
     parser.add_argument('--mitigation-cost', dest='mitigation_cost',
@@ -58,12 +57,11 @@ def main():
     identity = ['date_time', 'id_blade', 'dimm_id']
     preds_df = pd.read_csv(args.preds_file, parse_dates=['date_time']) \
                  .set_index(identity)
-    # TODO parse datetimes + csv
-    ues_blade_1w = pd.read_feather(args.ues_file)
+    ues_reduction = pd.read_csv(args.ues_file, parse_dates=['date_time'])
 
     # evaluate model performance
     evaluate(
-        preds_df, ues_blade_1w, pred_wind, mitigation_td,
+        preds_df, ues_reduction, pred_wind, mitigation_td,
         threshold=0.5, verbose=args.verbose
     )
 
