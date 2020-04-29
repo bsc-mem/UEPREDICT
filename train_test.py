@@ -21,7 +21,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     help_aliases = (
         'Specifies the %s. It has to be '
-        'specified in the form of pandas time offset aliases, see '
+        'defined in the form of pandas time offset aliases, see '
         'https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases '
         'for more information.'
     )

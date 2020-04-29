@@ -18,13 +18,16 @@ from ue_predict.evaluation import evaluate_multithreshold
 def parse_args():
     help_aliases = (
         'Specifies the %s. It has to be '
-        'specified in the form of pandas time offset aliases, see '
+        'defined in the form of pandas time offset aliases, see '
         'https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases '
         'for more information.'
     )
     parser = argparse.ArgumentParser()
     parser.add_argument('-pw', '--prediction-window', dest='pred_wind',
                         default='1d', help=help_aliases%'prediction window')
+    parser.add_argument('--mitigation-time', dest='mitigation_cost',
+                        default='2min', help=(help_aliases%'the time needed for')
+                                             'performing an impact mitigation'))
     parser.add_argument('-i-preds', '--input-predictions', dest='preds_file',
                         default='data/predictions.csv',
                         help=('Path to the input predictions file, a CSV '
@@ -34,8 +37,6 @@ def parse_args():
                         default='data/ues_reduction.csv',
                         help=('Path to the input Uncorrected Errors file, '
                               'a CSV containing the UEs data.'))
-    parser.add_argument('--mitigation-cost', dest='mitigation_cost',
-                        default='2min', help=help_aliases%'mitigation cost')
     parser.add_argument('-o', '--output-evaluations', dest='evals_file',
                         default='data/evaluations.csv',
                         help=('Path of the output file, a CSV containing '
