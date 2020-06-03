@@ -1,7 +1,7 @@
 # UEPREDICT
 Method for model prediction and evaluation of DRAM Uncorrected Errors (UEs). It is structured as follows:
 
- - The folder [ue_precict](ue\_predict) is a module containing the necessary files and methods for training and evaluation.
+ - The folder [ue_predict](ue\_predict) is a module containing the necessary files and methods for training and evaluation.
  - The scripts [train_test.py](train\_test.py) and [evaluation.py](evaluation.py) provide a way of executing the aforementioned files by allowing to configure specific parameters, such as the length of the prediction window or the prediction frequency.
  - The folder [data](data) contains the files needed for training and evaluation.
 
