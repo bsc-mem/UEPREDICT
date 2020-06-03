@@ -1,0 +1,247 @@
+LC_PAPER=en_US.UTF-8
+LESSKEY=/etc/lesskey.bin
+MODULE_VERSION_STACK=3.1.6
+MKLROOT=/apps/INTEL/composerxe/mkl
+MANPATH=/apps/PYTHON/3.7.5/man:/apps/GCC/4.9.1/man:/opt/lsf/9.1/man:/usr/local/man:/usr/share/man
+INFODIR=/usr/local/info:/usr/share/info:/usr/info
+NNTPSERVER=news
+LSB_EXEC_CLUSTER=mm
+LSF_EAUTH_AUX_PASS=yes
+LC_ADDRESS=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+HOSTNAME=srb
+LSB_EFFECTIVE_RSRCREQ=select[((HOST_OK==1)) && (type == local)] order[-mem] rusage[mem=1750.00] span[ptile=16] cu[type=switch:maxcus=1:pref=config] affinity[core(1)*1] 
+XKEYSYMDB=/usr/share/X11/XKeysymDB
+LSF_LIM_API_NTRIES=1
+LSF_LOGDIR=/var/perf/lsf/log
+_MODULESBEGINENV_=/home/user22/USER/.modulesbeginenv
+I_MPI_F77=gfortran
+LSB_BATCH_JID=1035025
+SHELL=/bin/bash
+HOST=login3
+HISTSIZE=1000
+PROFILEREAD=true
+RM_CPUTASK1=8
+TMPDIR=/scratch/tmp/1035025.tmpdir
+LSB_TRAPSIGS=trap # 15 10 12 2
+LS_JOBPID=10020
+LSB_ERRORFILE=1035025.err
+LSB_JOBRES_CALLBACK=48412@srb
+LSB_MAX_NUM_PROCESSORS=1
+LC_NUMERIC=en_US.UTF-8
+MORE=-sl
+LSB_JOB_EXECUSER=USER
+LSB_JOBID=1035025
+LSF_SERVERDIR=/opt/lsf/9.1/linux2.6-glibc2.3-x86_64/etc
+OMPI_F77=gfortran
+LSB_JOBRES_PID=10020
+MODULES_BASE=/gpfs/apps/MM/modules
+OMPI_FC=gfortran
+LSB_JOBNAME=hwinfo
+SSH_TTY=/dev/pts/0
+BSUB_BLOCK_EXEC_HOST=
+LSF_LIBDIR=/opt/lsf/9.1/linux2.6-glibc2.3-x86_64/lib
+USER=USER
+JRE_HOME=/usr/lib64/jvm/java/jre
+LC_TELEPHONE=en_US.UTF-8
+LD_LIBRARY_PATH=/apps/GLEW/1.7.0/lib64:/apps/LIBPNG/1.5.9/lib:/apps/PIXMAN/0.28.2/lib:/apps/PYTHON/2.7.3/lib:/apps/INTEL/composerxe/mkl/lib/intel64:/apps/GCC/SRC/EXTRA/inst/lib:/apps/GCC/4.9.1/lib64:/apps/GCC/4.9.1/lib:/opt/lsf/9.1/linux2.6-glibc2.3-x86_64/lib
+LS_COLORS=no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:
+SBD_KRB5CCNAME_VAL=
+LSB_EEXEC_REAL_UID=
+LSB_BATCH_NEW_SESSION=y
+XNLSPATH=/usr/share/X11/nls
+ENV=/etc/bash.bashrc
+HOSTTYPE=X86_64
+LSF_INVOKE_CMD=bsub
+TMOUT=3600
+LSB_DJOB_RTASK_GONE_ACTION=KILLJOB_TASKEXIT
+LS_EXEC_T=START
+FROM_HEADER=
+LSF_EAUTH_SERVER=mbatchd@mm
+PAGER=less
+MPICH_FC=gfortran
+LSB_SUB_RES_REQ=cu[maxcus=1]affinity[core(1)]rusage[mem=1750]
+LS_SUBCWD=/home/user22/USER/
+CSHEDIT=emacs
+LSF_VERSION=29
+LSB_HOSTS=srb
+LSB_UNIXGROUP_INT=user22
+XDG_CONFIG_DIRS=/etc/xdg
+LSB_JOBFILENAME=/home/user22/USER/.lsbatch/1590830007.1035025
+MINICOM=-c on
+LSB_JOBINDEX=0
+LSB_ECHKPNT_KEEP_OUTPUT=Y
+PATH=/apps/PROG_NAME/2.3.0/bin:/apps/PYTHON/3.7.5/bin:/apps/GCC/4.9.1/bin:/opt/lsf/9.1/linux2.6-glibc2.3-x86_64/bin:/opt/lsf/9.1/linux2.6-glibc2.3-x86_64/etc:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/opt/bin:/opt/ibutils/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/opt/intel/mic/bin:.
+MAIL=/var/mail/USER
+MODULE_VERSION=3.1.6
+CPU=x86_64
+_=/usr/bin/env
+LSB_EXIT_PRE_ABORT=99
+SSH_SENDS_LOCALE=yes
+JAVA_BINDIR=/usr/lib64/jvm/java/bin
+LSB_JOBEXIT_STAT=0
+LC_IDENTIFICATION=en_US.UTF-8
+C_INCLUDE_PATH=/apps/PYTHON/3.7.5/include
+MPICH_F77=gfortran
+PWD=/home/user22/USER
+INPUTRC=/home/user22/USER/.inputrc
+JAVA_HOME=/usr/lib64/jvm/java
+_LMFILES_=/apps/modules/modulefiles/environment/gnu/yes:/apps/modules/modulefiles/compilers/gcc/4.9.1:/apps/modules/modulefiles/libraries/MKL/11.0.1:/apps/modules/modulefiles/tools/PYTHON/3.7.5:/apps/modules/modulefiles/tools/SCONS/2.3.0
+MPICH_CC=gcc
+MPICH_CXX=g++
+LSB_RES_GET_FANOUT_INFO=Y
+LANG=en_US.UTF-8
+LSB_RESIZABLE=Y
+LSB_CHKFILENAME=/home/user22/USER/.lsbatch/1590830007.1035025
+LSF_EAUTH_CLIENT=user
+MODULEPATH=:/apps/modules/modulefiles/applications_bis:/apps/modules/modulefiles/applications:/apps/modules/modulefiles/compilers:/apps/modules/modulefiles/environment:/apps/modules/modulefiles/libraries:/apps/modules/modulefiles/tools:/apps/modules/PRACE
+PYTHONSTARTUP=/etc/pythonstart
+OMPI_F90=gfortran
+LSB_DJOB_HOSTFILE=/home/user22/USER/.lsbatch/1590830007.1035025.hostfile
+LC_MEASUREMENT=en_US.UTF-8
+SDK_HOME=/usr/lib64/jvm/java
+LOADEDMODULES=gnu/yes:gcc/4.9.1:MKL/11.0.1:PYTHON/3.7.5:SCONS/2.3.0
+LSF_JOB_TIMESTAMP_VALUE=1590830007
+I_MPI_F90=gfortran
+LSB_AFFINITY_HOSTFILE=/home/user22/USER/.lsbatch/1590830007.1035025.hostAffinityFile
+I_MPI_CC=gcc
+MPICH_F90=gfortran
+LSB_DJOB_NUMPROC=1
+LSB_EXEC_HOSTTYPE=X86_64
+LSF_BINDIR=/opt/lsf/9.1/linux2.6-glibc2.3-x86_64/bin
+MKL_HOME=/apps/INTEL/composerxe/mkl
+HOME=/home/user22/USER
+SHLVL=4
+JDK_HOME=/usr/lib64/jvm/java
+QT_SYSTEM_DIR=/usr/share/desktop-data
+LSB_APPLICATION_NAME=default
+OSTYPE=linux
+LESS_ADVANCED_PREPROCESSOR=no
+I_MPI_CXX=g++
+OMPI_CC=gcc
+LSB_ACCT_FILE=/scratch/tmp/1035025.tmpdir/.1590830007.1035025.acct
+XCURSOR_THEME=crystalwhite
+BINARY_TYPE_HPC=
+LS_OPTIONS=-N --color=tty -T 0
+LSB_SUB_HOST=login3
+WINDOWMANAGER=
+__LSF_JOB_TMPDIR__=/scratch/tmp/1035025.tmpdir
+LSB_SUB_USER=USER
+LSFUSER=USER
+LSB_QUEUE=sequential
+LSB_MCPU_HOSTS=srb 1 
+LSB_OUTPUTFILE=1035025.out
+LOGNAME=USER
+MACHTYPE=x86_64-suse-linux
+LESS=-M -I
+G_FILENAME_ENCODING=@locale,UTF-8,ISO-8859-15,CP1252
+PYTHONPATH=/apps/PYTHON/3.7.5/lib/python3.7/site-packages
+CVS_RSH=ssh
+XDG_DATA_DIRS=/usr/share:/etc/opt/kde3/share:/opt/kde3/share
+LSB_ECHKPNT_RSH_CMD=ssh
+MODULESHOME=/gpfs/apps/MM/modules/3.1.6_tuned/Modules/3.1.6
+LSF_CGROUP_TOPDIR_KEY=mm
+LESSOPEN=lessopen.sh %s
+OMPI_CXX=g++
+PROMPT_COMMAND=echo -ne "\033]0; ${USER}@${HOST}:${PWD} \007"
+INFOPATH=/usr/local/info:/usr/share/info:/usr/info
+LSB_EEXEC_REAL_GID=
+LSB_BIND_CPU_LIST=8
+LSF_ENVDIR=/opt/lsf/conf
+LC_TIME=en_US.UTF-8
+LESSCLOSE=lessclose.sh %s %s
+MP_COMPILER=gnu
+HISTFILE=/home/user22/USER/.bash_history
+G_BROKEN_FILENAMES=1
+LC_NAME=en_US.UTF-8
+COLORTERM=1
+JAVA_ROOT=/usr/lib64/jvm/java
+MODULESBEGINENV=/home/user22/USER/.modulesbeginenv
+BASH_FUNC_module()=() {  source /apps/modules/module_wrapper.sh $*
+}
+BASH_FUNC_mc()=() {  . /usr/share/mc/bin/mc-wrapper.sh
+}
+LSB Version:	core-2.0-noarch:core-3.2-noarch:core-4.0-noarch:core-2.0-x86_64:core-3.2-x86_64:core-4.0-x86_64:desktop-4.0-amd64:desktop-4.0-noarch:graphics-2.0-amd64:graphics-2.0-noarch:graphics-3.2-amd64:graphics-3.2-noarch:graphics-4.0-amd64:graphics-4.0-noarch
+Distributor ID:	SUSE LINUX
+Description:	SUSE Linux Enterprise Server 11 (x86_64)
+Release:	11
+Codename:	n/a
+Linux srb 3.0.101-0.47.90-default #1 SMP Wed Oct 19 14:11:00 UTC 2016 (56c73f1) x86_64 x86_64 x86_64 GNU/Linux
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                16
+On-line CPU(s) list:   0-15
+Thread(s) per core:    1
+Core(s) per socket:    8
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 45
+Stepping:              7
+CPU MHz:               2601.000
+BogoMIPS:              5199.88
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              20480K
+NUMA node0 CPU(s):     0-7
+NUMA node1 CPU(s):     8-15
+MemTotal:       132272956 kB
+MemFree:        125159864 kB
+Buffers:               0 kB
+Cached:           469168 kB
+SwapCached:        48424 kB
+Active:          2111464 kB
+Inactive:         327744 kB
+Active(anon):    1960252 kB
+Inactive(anon):   219088 kB
+Active(file):     151212 kB
+Inactive(file):   108656 kB
+Unevictable:     2163864 kB
+Mlocked:         2097152 kB
+SwapTotal:      11717628 kB
+SwapFree:       11204604 kB
+Dirty:                28 kB
+Writeback:             0 kB
+AnonPages:       4113184 kB
+Mapped:           333476 kB
+Shmem:            142588 kB
+Slab:             370292 kB
+SReclaimable:      95584 kB
+SUnreclaim:       274708 kB
+KernelStack:        9536 kB
+PageTables:        18276 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    77854104 kB
+Committed_AS:    6899292 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:     1095288 kB
+VmallocChunk:   34291532416 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      174088 kB
+DirectMap2M:    10291200 kB
+DirectMap1G:    123731968 kB
+NAME   MAJ:MIN RM   SIZE RO MOUNTPOINT
+sda      8:0    0 465.8G  0 
+├─sda1   8:1    0  11.2G  0 [SWAP]
+└─sda2   8:2    0 454.6G  0 /.statelite/tmpfs/scratch
+loop0    7:0    0         1 
+loop1    7:1    0         1 
+loop2    7:2    0         1 
+loop3    7:3    0         1 
+loop4    7:4    0         0 
+loop5    7:5    0         0 
+loop6    7:6    0         0 
+loop7    7:7    0         0 
+[0:0:0:0]    disk    ATA      ST500NM0011      BB46  /dev/sda    500GB
