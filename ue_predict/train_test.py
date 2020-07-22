@@ -39,6 +39,21 @@ def sample(X, y, sampling_fn):
     
     return sampling_fn.fit_resample(X, y)
 
+
+def get_performance(df_pred, ues_df, y_real, y_prob_1):
+    """
+    Print the number of impact mitigations performed (FP+TP) and the
+    number of correctly predicted UEs (TP)
+    """
+    dt_cond = ((y_real['date_time'] >= ues_df['date_time']) &
+              (ues_df['date_time'] <= y_real['date_time']))
+    # for _, ue in ues_df[dt_cond].iterrows():
+
+    # number of impact mitigations performed
+    mitigations = get_mitigations(df_pred)
+
+    # print(f'Mitigations: {}, Predicted UEs: {}')
+
     
 def print_performance(model, X_train, y_train, X_test, y_test):
     """Print model performance on train and test sets."""
