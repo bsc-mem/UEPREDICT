@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 
 from sklearn.metrics import confusion_matrix
 
+from ue_predict.utils import *
+
 
 
 def print_eval(pred_wind, ue_costs, evals_df):
@@ -77,10 +79,7 @@ def evaluate(df_pred, ues_df, pred_wind, mitigation_td, threshold=0.5):
                 ues_predictable += 1
     
     # number of impact mitigations performed
-    mitigations = df_pred[(df_pred['y_prob_1'] > threshold)] \
-                        .groupby(level=['date_time', 'id_blade']) \
-                        .size() \
-                        .size
+    mitigations = get_mitigations(df_pred, threshold=threshold)
     
     return pd.Series({
         'threshold': threshold,

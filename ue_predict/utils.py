@@ -18,6 +18,14 @@ def print_conf_mat(conf_mat, sufix=''):
     print(f'TN:{tn}, FP:{fp}, FN:{fn}, TP:{tp} {sufix}')
 
 
+def get_mitigations(df, threshold=0.5):
+    """Return number of impact mitigations performed."""
+    return df[(df['y_prob_1'] > threshold)] \
+            .groupby(level=['date_time', 'id_blade']) \
+            .size() \
+            .size
+
+
 def get_importances_df(ml_algo, ft_names):
     """Get feature importances given by the ML algorithm."""
     if not hasattr(ml_algo, 'feature_importances_'):
