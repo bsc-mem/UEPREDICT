@@ -43,8 +43,7 @@ def sample(X, y, sampling_fn):
 def get_performance(df_pred, ues_df, y_real, y_prob_1):
     """
     Print the number of impact mitigations performed (FP+TP) and the
-    number of correctly predicted UEs (TP)
-    """
+    number of correctly predicted UEs (TP)."""
     dt_cond = ((y_real['date_time'] >= ues_df['date_time']) &
               (ues_df['date_time'] <= y_real['date_time']))
     # for _, ue in ues_df[dt_cond].iterrows():
@@ -199,7 +198,9 @@ def train_test_iteration(model, sampling_fn, ft_names,
         'y_prob_1': y_probs[:,1] # probability of class 1
     })
     # compute feature importances
-    ft_importances = get_importances_df(model, ft_names)
+    ft_importances = []
+    if hasattr(model, 'feature_importances_'):
+        ft_importances = get_importances_df(model, ft_names)
     
     return preds_df, ft_importances
 
@@ -213,9 +214,11 @@ def train_test_cv(df, pred_freq, pred_wind, start_at_date, train_freq,
     test_preds_df = pd.DataFrame()
     # feature importances list (one element per test iteration)
     ft_importances = []
-    # hyperparams list of dictionaries for each hyperparam configuration
-    tun_hyperparams = get_hyperparams_combinations(hyperparams)
-    eval_hyperparams = []
+
+    if hyperparams:
+        # hyperparams list of dictionaries for each hyperparam configuration
+        tun_hyperparams = get_hyperparams_combinations(hyperparams)
+        eval_hyperparams = []
     
     # feature names: remove target feature from predictors
     ft_names = np.delete(
@@ -244,7 +247,9 @@ def train_test_cv(df, pred_freq, pred_wind, start_at_date, train_freq,
         # sample training data
         X_train, y_train = sample(X_train, y_train, sampling_fn)
         
-        if not eval_hyperparams:
+        if not hyperparams:
+            model = ml_algo() if callable(ml_algo) else ml_algo
+        elif not eval_hyperparams:
             # run hyperparams tuning if it's the first iteration
             model, eval_hyperparams = hyperparamters_tuning(
                 ml_algo, tun_hyperparams, eval_hyperparams,
@@ -266,17 +271,18 @@ def train_test_cv(df, pred_freq, pred_wind, start_at_date, train_freq,
         if verbose:
             print_performance(model, X_train, y_train, X_test, y_test)
         
-        # hyperparameters optimization
-        t_hyper1 = time.time()
-        model, eval_hyperparams = hyperparamters_tuning(
-            ml_algo, tun_hyperparams, eval_hyperparams,
-            X_train, y_train, X_test, y_test,verbose=verbose
-        )
-        t_hyper2 = time.time()
+        if hyperparams:
+            # hyperparameters optimization
+            t_hyper1 = time.time()
+            model, eval_hyperparams = hyperparamters_tuning(
+                ml_algo, tun_hyperparams, eval_hyperparams,
+                X_train, y_train, X_test, y_test,verbose=verbose
+            )
+            t_hyper2 = time.time()
         
-        if verbose:
-            print('Hyperparams optimization'
-                  ' time: %.2f secs' % (t_hyper2 - t_hyper1))
-            print()
+            if verbose:
+                print('Hyperparameters optimization'
+                    ' time: %.2f secs' % (t_hyper2 - t_hyper1))
+                print()
     
     return test_preds_df
