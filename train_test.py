@@ -54,7 +54,8 @@ def parse_args():
                               'iterations.'))
     parser.add_argument('-clf', '--classifier', dest='classifier', default='RF',
                         choices=['RF', 'GBDT', 'LR', 'GNB', 'SVM', 'NN'],
-                        help=('Classifier to use for training and predictions'))
+                        help=('Classifier to use for training and predicting. ',
+                              'Choices: RF, GBDT, LR, GNB, SVM or NN.'))
     parser.add_argument('-ru', '--random-undersampling', dest='under_ratio',
                         default=1, type=float,
                         help=('Ratio of the number of samples in the minority class ',
