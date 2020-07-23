@@ -26,7 +26,7 @@ def parse_args():
     parser.add_argument('-pw', '--prediction-window', dest='pred_wind',
                         default='1d', help=help_aliases%'prediction window')
     parser.add_argument('--mitigation-time', dest='mitigation_cost',
-                        default='2min', help=(help_aliases%'the time needed for')
+                        default='2min', help=(help_aliases%'the time needed for '
                                              'performing an impact mitigation'))
     parser.add_argument('-i-preds', '--input-predictions', dest='preds_file',
                         default='data/predictions.csv',
