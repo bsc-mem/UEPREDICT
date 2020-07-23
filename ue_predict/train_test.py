@@ -36,36 +36,21 @@ def sample(X, y, sampling_fn):
     if not hasattr(sampling_fn, 'fit_resample'):
         raise ValueError(('Sampling function must implement'
                           ' a "fit_resample" method'))
-    
-    return sampling_fn.fit_resample(X, y)
 
-
-def get_performance(df_pred, ues_df, y_real, y_prob_1):
-    """
-    Print the number of impact mitigations performed (FP+TP) and the
-    number of correctly predicted UEs (TP)."""
-    dt_cond = ((y_real['date_time'] >= ues_df['date_time']) &
-              (ues_df['date_time'] <= y_real['date_time']))
-    # for _, ue in ues_df[dt_cond].iterrows():
-
-    # number of impact mitigations performed
-    mitigations = get_mitigations(df_pred)
-
-    # print(f'Mitigations: {}, Predicted UEs: {}')
+    X_samp, y_samp = sampling_fn.fit_resample(X, y)
+    return X_samp.set_index(X), y_samp.set_index(y)
 
     
-def print_performance(model, X_train, y_train, X_test, y_test):
+def print_performance(train_preds_df, test_preds_df, ues_df, mitigation_td):
     """Print model performance on train and test sets."""
-    cm_train = confusion_matrix(y_train, model.predict(X_train))
-    print_conf_mat(cm_train, sufix='train')
-    if hasattr(model, 'oob_decision_function_'):
-        cm_oob = confusion_matrix(
-            y_train,
-            np.argmax(model.oob_decision_function_, axis=1)
-        )
-        print_conf_mat(cm_oob, sufix='train oob')
-    cm_test = confusion_matrix(y_test, model.predict(X_test))
-    print_conf_mat(cm_test, sufix='test')
+    # train performance
+    ues_predicted, ues_predictable, mitigations = get_performance(train_preds_df, ues_df)
+    print(f'UEs predicted: {ues_predicted}, UEs predictable: {ues_predictable}, '
+           'Mitigations: {mitigations} (train)')
+    # test performance
+    ues_predicted, ues_predictable, mitigations = get_performance(test_preds_df, ues_df)
+    print(f'UEs predicted: {ues_predicted}, UEs predictable: {ues_predictable}, '
+           'Mitigations: {mitigations} (test)')
 
 
 def enough_data(train_data, test_data, verbose=False):
@@ -269,7 +254,14 @@ def train_test_cv(df, pred_freq, pred_wind, start_at_date, train_freq,
         ft_importances.append(ft_imps)
         
         if verbose:
-            print_performance(model, X_train, y_train, X_test, y_test)
+            # print model performance on train and test sets
+            train_preds_df = pd.DataFrame({
+                'y_true': y_train,
+                'y_prob_1': model.predict_proba(X_train)[:,1] # probability of class 1
+            })
+            # use a mitigation time of 2 minutes by default
+            print_performance(train_preds_df, preds_df, ues_blade_1w,
+                              pred_wind, mitigation_td=dt.timedelta(minutes=2))
         
         if hyperparams:
             # hyperparameters optimization
@@ -281,8 +273,8 @@ def train_test_cv(df, pred_freq, pred_wind, start_at_date, train_freq,
             t_hyper2 = time.time()
         
             if verbose:
-                print('Hyperparameters optimization'
-                    ' time: %.2f secs' % (t_hyper2 - t_hyper1))
+                print('Hyperparameters optimization '
+                      'time: %.2f secs' % (t_hyper2 - t_hyper1))
                 print()
     
     return test_preds_df
