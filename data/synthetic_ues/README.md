@@ -1,0 +1,8 @@
+Our prediction method is trained and evaluated using the production MareNostrum 3 error logs. These production error logs are considered sensitive, and as is the case for other field studies, the production error logs cannot be released. 
+
+Nevertheless, we have been able to release a synthetic log of DRAM uncorrected errors (UEs) covering the same 26-month period, detailing DRAM id, time and error type (over-temperature vs ECC). The time between events follows an exponential Weibull distribution, separately for over-temperature and ECC errors, which we found (as for previous studies, e.g. [1]) to be an excellent match to the real DRAM UE distribution. Before fitting the Weibull distribution to the production UE logs, we have consolidatated errors that occurred multiple times within 30 seconds of each other on the same node into a single UE (following the methodology proposed by Levy et al. [1]). Since DRAM UEs require nodes to be rebooted, the 30-second UE bursts almost certainly represent a single node-down event.
+
+We hope that the released synthetic log will enable future studies to quantify the real-world impact of DRAM uncorrected errors and any proposed resiliency techniques.
+
+
+[1] Scott Levy, Kurt B. Ferreira, Nathan DeBardeleben, Taniya Siddiqua, Vilas Sridharan, and Elisabeth Baseman. Lessons Learned from Memory Errors Observed over the Lifetime of Cielo. In *Proceedings of the International Conference for High Performance Computing, Networking, Storage, and Analysis (SC)*, 2018.
