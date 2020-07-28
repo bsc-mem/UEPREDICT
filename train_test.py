@@ -101,7 +101,6 @@ def get_classifier(opt, input_dim):
             'n_estimators': [100],
             'max_depth': [None, 10, 30, 50, 100],
             'min_samples_split': [2, 10, 50, 100],
-            'oob_score': [True],
             'random_state': [42],
             'n_jobs': [-1],
         }
@@ -110,9 +109,9 @@ def get_classifier(opt, input_dim):
         hyperparams = {
             'boosting_type': ['gbdt'],
             'n_estimators': [100],
-            'max_depth': [None, 10, 30, 50, 100],
+            'max_depth': [-1, 10, 30, 50, 100],
             'num_leaves': [2, 3, 5, 10, 50],
-            'learning_rate': [0.001, 0.1],
+            'learning_rate': [0.001, 0.01, 0.1],
             'class_weight': [None, 'balanced'],
             'random_state': [42],
             'n_jobs': [-1],
@@ -128,7 +127,9 @@ def get_classifier(opt, input_dim):
         }
     elif opt == 'GNB':
         ml_algo = GaussianNB
-        hyperparams = {}
+        hyperparams = {
+            'var_smoothing': [10**-i for i in range(2, 15)],
+        }
     elif opt == 'SVM':
         ml_algo = SVC
         hyperparams = {
