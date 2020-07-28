@@ -4,6 +4,7 @@ Method for model prediction and evaluation of DRAM Uncorrected Errors (UEs). It 
  - The folder [ue_predict](ue\_predict) is a module containing the necessary files and methods for training and evaluation.
  - The scripts [train_test.py](train\_test.py) and [evaluation.py](evaluation.py) provide a way of executing the aforementioned files by allowing to configure specific parameters, such as the length of the prediction window or the prediction frequency.
  - The folder [data](data) contains the files needed for training and evaluation.
+ - The folder [synthetic_ues](synthetic_ues) contains a synthetic log file of UEs based on the production MareNostrum 3 error logs. We provide this log file in order to enable future studies to quantify the real-world impact of DRAM uncorrected errors and any proposed resiliency techniques.
 
 The UEPREDICT code is released under the BSD-3 [License](LICENSE).
 
