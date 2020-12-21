@@ -61,7 +61,7 @@ python3 evaluation.py --verbose
 |        | --verbose                 | If specified, shows the information regarding split the evaluation of the predictions.                              |
 
 
-### Acknowledgment
+# Acknowledgment
 
 This work was supported by the Spanish Ministry of Science and Technology (project PID2019-107255GB), Generalitat de Catalunya (contracts 2014-SGR-1051 and 2014-SGR-1272)
 and the European Union’s Horizon 2020 research and innovation programme and EuroEXA project (grant agreement No 754337). Paul Carpenter and Marc Casas hold the Ramon
