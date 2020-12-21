@@ -1,5 +1,8 @@
 # UEPREDICT
-Method for model prediction and evaluation of DRAM Uncorrected Errors (UEs). It is structured as follows:
+Method for model prediction and evaluation of DRAM Uncorrected Errors (UEs).
+Supplemental code for the SC20 paper ["Cost-Aware Prediction of Uncorrected DRAM Errors in the Field"](https://dl.acm.org/doi/10.5555/3433701.3433782).
+
+The project is structured as follows:
 
  - The folder [ue_predict](ue\_predict) is a module containing the necessary files and methods for training and evaluation.
  - The scripts [train_test.py](train\_test.py) and [evaluation.py](evaluation.py) provide a way of executing the aforementioned files by allowing to configure specific parameters, such as the length of the prediction window or the prediction frequency.
@@ -57,3 +60,8 @@ python3 evaluation.py --verbose
 |        | --verbose                 | If specified, shows the information regarding split the evaluation of the predictions.                              |
 
 
+### Acknowledgment
+
+This work was supported by the Spanish Ministry of Science and Technology (project PID2019-107255GB), Generalitat de Catalunya (contracts 2014-SGR-1051 and 2014-SGR-1272)
+and the European Union’s Horizon 2020 research and innovation programme and EuroEXA project (grant agreement No 754337). Paul Carpenter and Marc Casas hold the Ramon
+y Cajal fellowship under contracts RYC2018-025628-I and RYC2017-23269, respectively, of the Ministry of Economy and Competitiveness of Spain.
