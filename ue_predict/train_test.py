@@ -190,7 +190,7 @@ def train_test_iteration(model, sampling_fn, ft_names,
 
 
 def train_test_cv(df, pred_freq, pred_wind, start_at_date, train_freq,
-                  ml_algo, hyperparams, sampling_fn, verbose=False):
+                  ml_algo, hyperparams, sampling_fn, ues_bdf, verbose=False):
     """
     Logic for applying cross-validation for training and testing.
     It also performs hyperparameters optimization."""
@@ -259,7 +259,7 @@ def train_test_cv(df, pred_freq, pred_wind, start_at_date, train_freq,
                 'y_prob_1': model.predict_proba(X_train)[:,1] # probability of class 1
             })
             # use a mitigation time of 2 minutes by default
-            print_performance(train_preds_df, preds_df, ues_blade_1w,
+            print_performance(train_preds_df, preds_df, ues_bdf,
                               pred_wind, mitigation_td=dt.timedelta(minutes=2))
         
         if hyperparams:

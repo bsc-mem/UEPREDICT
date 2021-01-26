@@ -195,7 +195,7 @@ def main():
     
     preds_df = train_test_cv(
         scaled_df, args.pred_freq, pred_wind, start_at, args.train_freq,
-        ml_algo, hyperparams, sampling_fn, verbose=args.verbose
+        ml_algo, hyperparams, sampling_fn, ues_reduction, verbose=args.verbose
     )
     
     # save prediction probabilities
