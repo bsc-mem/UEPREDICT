@@ -8,6 +8,7 @@ import time
 import itertools
 import numpy as np
 import pandas as pd
+import datetime as dt
 
 from sklearn.metrics import confusion_matrix
 
@@ -37,17 +38,26 @@ def sample(X, y, sampling_fn):
         raise ValueError(('Sampling function must implement'
                           ' a "fit_resample" method'))
 
-    return sampling_fn.fit_resample(X, y)
+    X_samp, y_samp = sampling_fn.fit_resample(X, y)
+    idxs = sampling_fn.sample_indices_
+    X_samp = X_samp.set_index(X.iloc[idxs].index) \
+                   .sort_index(axis=0, level='date_time')
+    y_samp.index = y.iloc[idxs].index
+    y_samp = y_samp.sort_index(axis=0, level='date_time')
+    return X_samp, y_samp
 
     
-def print_performance(train_preds_df, test_preds_df, ues_df, mitigation_td):
+def print_performance(train_preds_df, test_preds_df, ues_df,
+                      pred_wind, mitigation_td):
     """Print model performance on train and test sets."""
     # train performance
-    ues_predicted, ues_predictable, mitigations = get_performance(train_preds_df, ues_df)
+    performance = get_performance(train_preds_df, ues_df, pred_wind, mitigation_td)
+    ues_predicted, ues_predictable, mitigations = performance
     print(f'UEs predicted: {ues_predicted}, UEs predictable: {ues_predictable}, '
            'Mitigations: {mitigations} (train)')
     # test performance
-    ues_predicted, ues_predictable, mitigations = get_performance(test_preds_df, ues_df)
+    performance = get_performance(test_preds_df, ues_df, pred_wind, mitigation_td)
+    ues_predicted, ues_predictable, mitigations = performance
     print(f'UEs predicted: {ues_predicted}, UEs predictable: {ues_predictable}, '
            'Mitigations: {mitigations} (test)')
 
