@@ -37,8 +37,7 @@ def sample(X, y, sampling_fn):
         raise ValueError(('Sampling function must implement'
                           ' a "fit_resample" method'))
 
-    X_samp, y_samp = sampling_fn.fit_resample(X, y)
-    return X_samp.set_index(X), y_samp.set_index(y)
+    return sampling_fn.fit_resample(X, y)
 
     
 def print_performance(train_preds_df, test_preds_df, ues_df, mitigation_td):
