@@ -75,7 +75,7 @@ def get_performance(df_pred, ues_df, pred_wind, mitigation_td, threshold=0.5):
     and number of impact mitigations performed (FP+TP)."""
     pred_dts = df_pred.index.get_level_values('date_time')
     dt_cond = ((pred_dts.min() <= ues_df['date_time']) &
-               (ues_df['date_time'] <= pred_dts.max() + pred_wind))
+               (ues_df['date_time'] <= pred_dts.max()))
 
     # number of correctly predicted UEs
     ues_predicted = get_ues_predicted(df_pred, ues_df[dt_cond], pred_wind,
