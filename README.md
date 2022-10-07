@@ -6,7 +6,7 @@ Supplemental code for the SC20 paper ["Cost-Aware Prediction of Uncorrected DRAM
 The project is structured as follows:
 
  - The folder [ue_predict](ue\_predict) is a module containing the necessary files and methods for training and evaluation.
- - The scripts [train_test.py](train\_test.py) and [evaluation.py](evaluation.py) provide a way of executing the aforementioned files by allowing to configure specific parameters, such as the length of the prediction window or the prediction frequency.
+ - The scripts [train_test.py](train\_test.py) and [evaluation.py](evaluation.py) provide a way of executing the 'ue_predict' module by allowing the configuration of specific parameters, such as the length of the prediction window or the prediction frequency.
  - The folder [data](data) contains the files needed for training and evaluation.
  - The folder [synthetic_ues](synthetic_ues) contains a synthetic log file of UEs based on the production MareNostrum 3 error logs. We provide this log file in order to enable future studies to quantify the real-world impact of DRAM uncorrected errors and any proposed resiliency techniques.
 
@@ -23,9 +23,9 @@ python3 train_test.py --verbose
 
 If executed with the `verbose` argument, it prints information at each training/testing step, such as the confusion matrix values for train and test sets or the best hyperparamters.
 
-After it's execution, it will generate a file with the probabilities calculated by the model of each instance belonging to class 1 (i.e. having an Uncorrected Error in the next prediction window), alongside the correct class label. This file is stored as [data/predictions.csv](data/predictions.csv) by default.
+After its execution, it will generate a file with the probabilities calculated by the model of each instance belonging to class 1 (i.e. having an Uncorrected Error in the next prediction window), alongside the correct class label. This file is stored as [data/predictions.csv](data/predictions.csv) by default.
 
-Once the `predictions` file is computed, it can be evaluated by executing the [evaluation.py](evaluation.py) script, which gives information such as the number of impact mitigations performed or the number of correctly predicted UEs.
+Once the `predictions` file is generated, it can be evaluated by executing the [evaluation.py](evaluation.py) script, which gives information such as the number of impact mitigations performed or the number of correctly predicted UEs.
 
 ```shell
 python3 evaluation.py --verbose
