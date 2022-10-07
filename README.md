@@ -1,7 +1,7 @@
 # UEPREDICT
 Method for model prediction and evaluation of DRAM Uncorrected Errors (UEs).
 
-Supplemental code for the SC20 paper ["Cost-Aware Prediction of Uncorrected DRAM Errors in the Field"](https://dl.acm.org/doi/10.5555/3433701.3433782).
+Supplemental code for the SC20 paper ["Cost-Aware Prediction of Uncorrected DRAM Errors in the Field"](https://upcommons.upc.edu/bitstream/handle/2117/341921/UE-Prediction_print.pdf?sequence=1&isAllowed=y).
 
 The project is structured as follows:
 
