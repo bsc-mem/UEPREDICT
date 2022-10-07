@@ -1,3 +1,38 @@
+"""
+Copyright (c) 2020, Isaac Boixaderas Coderch
+                    Petar Radojkovic
+                    Paul Carpenter
+                    Marc Casas
+                    Eduard Ayguade
+                    Contact: isaac.boixaderas [at] bsc [dot] es
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+
+    * Neither the name of the copyright holder nor the names
+      of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+"""
+
 
 """
 Module with all the necessary function for performing train/test
@@ -54,12 +89,12 @@ def print_performance(train_preds_df, test_preds_df, ues_df,
     performance = get_performance(train_preds_df, ues_df, pred_wind, mitigation_td)
     ues_predicted, ues_predictable, mitigations = performance
     print(f'UEs predicted: {ues_predicted}, UEs predictable: {ues_predictable}, '
-           'Mitigations: {mitigations} (train)')
+          f'Mitigations: {mitigations} (train)')
     # test performance
     performance = get_performance(test_preds_df, ues_df, pred_wind, mitigation_td)
     ues_predicted, ues_predictable, mitigations = performance
     print(f'UEs predicted: {ues_predicted}, UEs predictable: {ues_predictable}, '
-           'Mitigations: {mitigations} (test)')
+          f'Mitigations: {mitigations} (test)')
 
 
 def enough_data(train_data, test_data, verbose=False):
@@ -82,14 +117,6 @@ def enough_classes(y, verbose=False):
         if verbose:
             print('Only 1 class for training\n')
         return False
-    # TODO deprecate
-    # if np.sum(y == 1) < min_minority:
-    #     # continue iterating if less than 'min_minority' instances
-    #     # from the minority class
-    #     if verbose:
-    #         print((f'Less than {min_minority} instances from the'
-    #                 ' minority class\n'))
-    #     return False
     return True
 
 
@@ -277,7 +304,7 @@ def train_test_cv(df, pred_freq, pred_wind, start_at_date, train_freq,
             t_hyper1 = time.time()
             model, eval_hyperparams = hyperparamters_tuning(
                 ml_algo, tun_hyperparams, eval_hyperparams,
-                X_train, y_train, X_test, y_test,verbose=verbose
+                X_train, y_train, X_test, y_test, verbose=verbose
             )
             t_hyper2 = time.time()
         
